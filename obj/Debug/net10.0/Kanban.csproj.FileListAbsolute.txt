@@ -186,3 +186,4 @@ C:\Project\Kanban\obj\Debug\net10.0\Kanban.csproj.Up2Date
 C:\Project\Kanban\bin\Debug\net10.0\Npgsql.dll
 C:\Project\Kanban\bin\Debug\net10.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Project\Kanban\obj\Debug\net10.0\Kanban.csproj.AssemblyReference.cache
+C:\Project\Kanban\obj\Debug\net10.0\Kanban.sourcelink.json

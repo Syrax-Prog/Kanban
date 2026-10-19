@@ -1,0 +1,44 @@
+@model kanban.Models.Board
+
+@{
+    ViewData["Title"] = Model.Name;
+    var totalCards = Model.Columns.Sum(c => c.Cards.Count);
+}
+
+<div class="d-flex align-items-baseline justify-content-between mb-4">
+    <h1 class="h3 fw-semibold mb-0">@Model.Name</h1>
+    <span class="text-muted small">
+        @Model.Columns.Count columns &middot; @totalCards @(totalCards == 1 ? "card" : "cards")
+    </span>
+</div>
+
+<div class="board">
+    @foreach (var column in Model.Columns)
+    {
+        <section class="kanban-column" aria-label="@column.Name">
+            <div class="d-flex align-items-center justify-content-between kanban-column-title">
+                <span>@column.Name</span>
+                <span class="badge rounded-pill text-bg-secondary">@column.Cards.Count</span>
+            </div>
+
+            @foreach (var item in column.Cards)
+            {
+                <div class="kanban-card">@item.Title</div>
+            }
+
+            @if (!column.Cards.Any())
+            {
+                <p class="text-muted small fst-italic mb-2">No cards yet</p>
+            }
+
+            <form asp-action="AddCard" method="post" class="mt-2">
+                <input type="hidden" name="columnId" value="@column.Id" />
+                <div class="input-group input-group-sm">
+                    <input type="text" name="title" class="form-control" placeholder="Add a card..." maxlength="200"
+                           required aria-label="New card title for @column.Name" />
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </section>
+    }
+</div>

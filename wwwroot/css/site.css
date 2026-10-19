@@ -1,3 +1,13 @@
+/* ---------- Design tokens (change colors here) ---------- */
+:root {
+  --app-bg: #f1f3f6;
+  --app-nav: #1e293b;
+  --app-accent: #6366f1;
+  --app-column: #e4e7ec;
+  --app-radius: 0.6rem;
+}
+
+/* ---------- Base ---------- */
 html {
   font-size: 14px;
 }
@@ -8,24 +18,85 @@ html {
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+  background: var(--app-bg);
+  color: #1f2937;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+/* ---------- Navbar ---------- */
+.app-navbar {
+  background: var(--app-nav);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+.app-navbar .nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  border-radius: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  transition: background 0.15s, color 0.15s;
+}
+
+.app-navbar .nav-link:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.app-navbar .nav-link.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.brand-mark {
+  display: inline-block;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 0.3rem;
+  background: linear-gradient(135deg, var(--app-accent), #a78bfa);
+}
+
+/* ---------- Footer ---------- */
+.app-footer {
+  border-top: 1px solid #dfe3e8;
+  background: #fff;
+}
+
+/* ---------- Kanban board ---------- */
+.board {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.kanban-column {
+  flex: 0 0 18rem;
+  background: var(--app-column);
+  border-radius: var(--app-radius);
+  padding: 0.75rem;
+}
+
+.kanban-column-title {
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #475467;
+  margin-bottom: 0.75rem;
+}
+
+.kanban-card {
+  background: #fff;
+  border-radius: 0.45rem;
+  padding: 0.6rem 0.75rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08);
+}
+
+/* ---------- Buttons ---------- */
+.btn-primary {
+  --bs-btn-bg: var(--app-accent);
+  --bs-btn-border-color: var(--app-accent);
+  --bs-btn-hover-bg: #4f46e5;
+  --bs-btn-hover-border-color: #4f46e5;
 }
