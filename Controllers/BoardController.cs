@@ -29,7 +29,7 @@ public class BoardController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> RenameBoard(int id, string? title)
     {
-        title = title?.Trim() ?? "";
+        title = title?.Trim() ?? "Untitled";
         if (title.Length is 0 or > 100) return BadRequest();
 
         var board = await _db.Boards.FindAsync(id);
@@ -44,7 +44,7 @@ public class BoardController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> RenameCard(int id, string? title)
     {
-        title = title?.Trim() ?? "";
+        title = title?.Trim() ?? "Untitled";
         if (title.Length is 0 or > 200) return BadRequest();
 
         var card = await _db.Cards.FindAsync(id);
@@ -53,5 +53,33 @@ public class BoardController : Controller
         card.Title = title;
         await _db.SaveChangesAsync();
         return Json(new { title = card.Title });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> AddCard(int columnId, string? title)
+    {
+        title = title?.Trim() ?? "";
+        if(title.Length <= 0) title = "Untitled";
+        if(title.Length > 200) title = title[..200];
+
+        var column = await _db.Columns.FindAsync(columnId);
+        if(column == null) return NotFound();
+
+        var lastPosition = await _db.Cards
+            .Where(c => c.ColumnId == columnId)
+            .MaxAsync(c => (int?)c.Position) ?? 0;
+
+        _db.Cards.Add(new Card
+        {
+            Title = title,
+            Description = "Description",
+            ColumnId = columnId,
+            Position = lastPosition + 1,
+            CreateAt = DateTime.UtcNow
+        });
+
+        await _db.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
     }
 }

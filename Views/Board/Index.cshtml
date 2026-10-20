@@ -10,10 +10,9 @@
 
 <div class="d-flex align-items-start justify-content-between mb-4 gap-3">
     <div class="flex-grow-1" style="max-width: 36rem;">
-        <textarea class="inline-edit fs-3 fw-semibold" rows="1" maxlength="100" data-inline-edit
-                  data-url="@Url.Action("RenameBoard", "Board")" data-id="@Model.Id"
-                  aria-label="Board name">@Model.Name</textarea>
+        <textarea class="inline-edit fs-3 fw-semibold" rows="1" maxlength="100" data-inline-edit data-url="@Url.Action("RenameBoard", "Board")" data-id="@Model.Id" aria-label="Board name">@Model.Name</textarea>
     </div>
+
     <span class="text-muted small pt-2 text-nowrap">
         @Model.Columns.Count columns &middot; @totalCards @(totalCards == 1 ? "card" : "cards")
     </span>
@@ -30,11 +29,7 @@
 
             @foreach (var item in column.Cards)
             {
-                <div class="kanban-card">
-                    <textarea class="inline-edit" rows="1" maxlength="200" data-inline-edit
-                              data-url="@Url.Action("RenameCard", "Board")" data-id="@item.Id"
-                              aria-label="Card title">@item.Title</textarea>
-                </div>
+                <partial name="_Card" model="item"/>
             }
 
             @if (!column.Cards.Any())
@@ -45,8 +40,7 @@
             <form asp-action="AddCard" method="post" class="mt-2">
                 <input type="hidden" name="columnId" value="@column.Id" />
                 <div class="input-group input-group-sm">
-                    <input type="text" name="title" class="form-control" placeholder="Add a card..." maxlength="200"
-                           required aria-label="New card title for @column.Name" />
+                    <input type="text" name="title" class="form-control" placeholder="Add a card..." maxlength="200" required aria-label="New card title for @column.Name" />
                     <button type="submit" class="btn btn-primary">Add</button>
                 </div>
             </form>

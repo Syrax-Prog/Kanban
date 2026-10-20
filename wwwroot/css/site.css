@@ -128,3 +128,18 @@ body {
 
 .inline-edit.saving { opacity: 0.6; }
 .inline-edit.error  { border-color: #dc3545; }
+
+/* ---------- Card title and description ---------- */
+.kanban-card-title {
+  font-weight: 600;
+}
+
+.kanban-card-desc {
+  font-size: 0.85rem;
+  color: #667085;
+  margin-top: 0.15rem;
+}
+
+.kanban-card-desc::placeholder {
+  color: #98a2b3;
+}

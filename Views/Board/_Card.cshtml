@@ -1,0 +1,16 @@
+@model kanban.Models.Card
+
+<div class="kanban-card">
+    <textarea class="inline-edit kanban-card-title" rows="1" maxlength="200"
+              data-inline-edit
+              data-url="@Url.Action("RenameCard", "Board")"
+              data-id="@Model.Id"
+              aria-label="Card title">@Model.Title</textarea>
+
+    <textarea class="inline-edit kanban-card-desc" rows="1" maxlength="2000"
+              data-inline-edit data-field="description" data-allow-empty data-multiline
+              data-url="@Url.Action("UpdateDescription", "Board")"
+              data-id="@Model.Id"
+              placeholder="Add a description..."
+              aria-label="Card description" readonly>@Model.Description </textarea>
+</div>

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kanban")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c7e91dc17b4f68410aff132f4c29b0c42a2c9d83")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd6304b7eedcc9ead174d7b8da97e159dfa7dd36")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kanban")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kanban")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

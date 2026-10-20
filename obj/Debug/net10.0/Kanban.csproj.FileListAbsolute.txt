@@ -22,7 +22,6 @@ C:\Project\kanban\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp
 C:\Project\kanban\obj\Debug\net10.0\scopedcss\bundle\Kanban.styles.css
 C:\Project\kanban\obj\Debug\net10.0\scopedcss\projectbundle\Kanban.bundle.scp.css
 C:\Project\kanban\obj\Debug\net10.0\compressed\zzwygkzuoz-{0}-61n19gt1b8-61n19gt1b8.gz
-C:\Project\kanban\obj\Debug\net10.0\compressed\an5489vshk-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Project\kanban\obj\Debug\net10.0\compressed\e7oju8fbm4-{0}-bqjiyaj88i-bqjiyaj88i.gz
 C:\Project\kanban\obj\Debug\net10.0\compressed\ekvfnm7s59-{0}-c2jlpeoesf-c2jlpeoesf.gz
 C:\Project\kanban\obj\Debug\net10.0\compressed\ya4otou311-{0}-erw9l3u2r3-erw9l3u2r3.gz
@@ -186,4 +185,5 @@ C:\Project\Kanban\bin\Debug\net10.0\Npgsql.dll
 C:\Project\Kanban\bin\Debug\net10.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Project\Kanban\obj\Debug\net10.0\Kanban.csproj.AssemblyReference.cache
 C:\Project\Kanban\obj\Debug\net10.0\Kanban.sourcelink.json
-C:\Project\Kanban\obj\Debug\net10.0\compressed\snqjozg1ki-{0}-zvfgeqtth9-zvfgeqtth9.gz
+C:\Project\Kanban\obj\Debug\net10.0\compressed\an5489vshk-{0}-n5yqwsxvrn-n5yqwsxvrn.gz
+C:\Project\Kanban\obj\Debug\net10.0\compressed\snqjozg1ki-{0}-1ptij89pt9-1ptij89pt9.gz
