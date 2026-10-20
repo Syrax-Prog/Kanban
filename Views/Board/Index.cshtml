@@ -5,9 +5,16 @@
     var totalCards = Model.Columns.Sum(c => c.Cards.Count);
 }
 
-<div class="d-flex align-items-baseline justify-content-between mb-4">
-    <h1 class="h3 fw-semibold mb-0">@Model.Name</h1>
-    <span class="text-muted small">
+@* One anti-forgery token for the whole page; inline-edit.js reads it and sends it with each save *@
+@Html.AntiForgeryToken()
+
+<div class="d-flex align-items-start justify-content-between mb-4 gap-3">
+    <div class="flex-grow-1" style="max-width: 36rem;">
+        <textarea class="inline-edit fs-3 fw-semibold" rows="1" maxlength="100" data-inline-edit
+                  data-url="@Url.Action("RenameBoard", "Board")" data-id="@Model.Id"
+                  aria-label="Board name">@Model.Name</textarea>
+    </div>
+    <span class="text-muted small pt-2 text-nowrap">
         @Model.Columns.Count columns &middot; @totalCards @(totalCards == 1 ? "card" : "cards")
     </span>
 </div>
@@ -23,7 +30,11 @@
 
             @foreach (var item in column.Cards)
             {
-                <div class="kanban-card">@item.Title</div>
+                <div class="kanban-card">
+                    <textarea class="inline-edit" rows="1" maxlength="200" data-inline-edit
+                              data-url="@Url.Action("RenameCard", "Board")" data-id="@item.Id"
+                              aria-label="Card title">@item.Title</textarea>
+                </div>
             }
 
             @if (!column.Cards.Any())
@@ -42,3 +53,7 @@
         </section>
     }
 </div>
+
+@section Scripts {
+    <script src="~/js/inline-edit.js" asp-append-version="true"></script>
+}

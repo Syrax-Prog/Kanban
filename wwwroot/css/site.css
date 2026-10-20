@@ -100,3 +100,31 @@ body {
   --bs-btn-hover-bg: #4f46e5;
   --bs-btn-hover-border-color: #4f46e5;
 }
+
+/* ---------- Inline editing ---------- */
+.inline-edit {
+  display: block;
+  width: 100%;
+  padding: 0.15rem 0.4rem;
+  border: 1px solid transparent;
+  border-radius: 0.35rem;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  resize: none;
+  overflow: hidden;
+}
+
+.inline-edit:hover {
+  border-color: #d0d5dd;
+}
+
+.inline-edit:focus {
+  outline: none;
+  border-color: var(--app-accent);
+  background: #fff;
+  box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.2);
+}
+
+.inline-edit.saving { opacity: 0.6; }
+.inline-edit.error  { border-color: #dc3545; }
